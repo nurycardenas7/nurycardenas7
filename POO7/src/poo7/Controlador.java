@@ -21,7 +21,7 @@ public class Controlador {
         Palabra LaPalabra = new Palabra();
         System.out.println(LaPalabra.getPalabraElegida());
         System.out.println(LaPalabra.getLong());
-       LaPalabra.LetraDePalabra();
+      LaPalabra.getListaDeLetras();
          }
 
 }

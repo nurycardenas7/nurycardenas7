@@ -18,6 +18,8 @@ public class Palabra {
      protected String LetraIngresada = "A";
      protected String PalabraElegida;
      protected String LetraEnLaPalabra;
+     protected List<String> ListaDeLetras;
+     
      
         
         
@@ -32,6 +34,8 @@ public class Palabra {
             ListaDePalabras.add("CORCHETE");
             ListaDePalabras.add("XENOFOBIA");
             ListaDePalabras.add("DESCOMPUESTO");
+            ListaDeLetras = new ArrayList();
+
          }
         
         public String getPalabraElegida(){
@@ -50,13 +54,21 @@ public class Palabra {
             return Long;
         }
         
-        public void LetraDePalabra(){    
+        public void getListaDeLetras(){ 
+        //if (!ListaDeLetras.contains(LetraIngresada)){
+         //   System.out.println("-");
+      
+     
         for (int i = 0; i<Long; i++){
-         LetraEnLaPalabra = PalabraElegida.substring(i);
-         if (LetraEnLaPalabra.equals(LetraIngresada)){
-             System.out.println(LetraEnLaPalabra);
+         ListaDeLetras.add(PalabraElegida.substring(i,i+1));
+         //if (ListaDeLetras.contains(LetraIngresada)){
+         // System.out.println(ListaDeLetras.get(i));
+          if (ListaDeLetras.get(i).equalsIgnoreCase(LetraIngresada)){
+              System.out.println(ListaDeLetras.get(i));
+        } else {
+          System.out.println("-");}
+         } 
+         //return ListaDeLetras;
         }
-        }
+        
 }
-}
-
