@@ -54,21 +54,25 @@ public class Palabra {
             return Long;
         }
         
-        public void getListaDeLetras(){ 
+        public List getListaDeLetras(){ 
         //if (!ListaDeLetras.contains(LetraIngresada)){
          //   System.out.println("-");
-      
-     
         for (int i = 0; i<Long; i++){
          ListaDeLetras.add(PalabraElegida.substring(i,i+1));
+        
          //if (ListaDeLetras.contains(LetraIngresada)){
          // System.out.println(ListaDeLetras.get(i));
           if (ListaDeLetras.get(i).equalsIgnoreCase(LetraIngresada)){
               System.out.println(ListaDeLetras.get(i));
-        } else {
-          System.out.println("-");}
-         } 
-         //return ListaDeLetras;
+              } else{             
+                 System.out.println("-");}
+                 }
+         return ListaDeLetras;
         }
+}        
+
         
-}
+        
+        
+        
+        
