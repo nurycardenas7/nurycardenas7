@@ -5,10 +5,17 @@
  */
 package poo7;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author maquina
  */
 public class Juego {
     protected Palabra Palabra;
+
+    public Juego (){
+          
+    }
 }

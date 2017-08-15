@@ -5,6 +5,8 @@
  */
 package poo7;
 
+import java.util.*;
+
 /**
  *
  * @author maquina
@@ -14,14 +16,17 @@ public class Controlador {
     protected String LetraIngresada;
     
     public Controlador(){
+
     }
       
-    public void Run(){
+    public void Run(){        
         Juego ElJuego = new Juego();
         Palabra LaPalabra = new Palabra();
         System.out.println(LaPalabra.getPalabraElegida());
         System.out.println(LaPalabra.getLong());
-      LaPalabra.getListaDeLetras();
+        LaPalabra.recorrerYCompararLetras();
+       
+        
          }
 
 }
