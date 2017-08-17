@@ -13,9 +13,18 @@ import java.util.List;
  * @author maquina
  */
 public class Juego {
-    protected Palabra Palabra;
+       protected Palabra LaPalabra; 
+       
+       public Juego(){
+        LaPalabra = new Palabra(); 
 
-    public Juego (){
-          
-    }
-}
+       }
+       
+       public Palabra ObtenerPalabra(){
+          LaPalabra.getPalabraElegida();
+          LaPalabra.getLong();
+          LaPalabra.llenarPalabraOculta();
+          LaPalabra.compararPalabraOculta();
+        return LaPalabra;
+     }
+       }

@@ -16,10 +16,8 @@ public class POO7 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        // creo el objeto controlador 
-           Controlador ElControlador = new Controlador();
-        //llamo al metodo run donde se encuentra toda la logica del programa
+        Controlador ElControlador = new Controlador();
+        
         ElControlador.Run();
     }
-    
 }
