@@ -5,26 +5,62 @@
  */
 package poo7;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.awt.Event;
+import java.awt.event.ActionEvent;
+import java.util.*;
 
 /**
  *
- * @author maquina
+ * @author CFP31-10
  */
-public class Juego {
-       protected Palabra LaPalabra; 
-       
-       public Juego(){
-        LaPalabra = new Palabra(); 
+public class Juego implements IKeyGameListener {
 
-       }
-       
-       public Palabra ObtenerPalabra(){
-          LaPalabra.getPalabraElegida();
-          LaPalabra.getLong();
-          LaPalabra.llenarPalabraOculta();
-          LaPalabra.compararPalabraOculta();
+    protected Palabra LaPalabra;
+    protected String dato;
+
+    public Juego() {
+        LaPalabra = new Palabra();
+
+    }
+
+    public Palabra ObtenerPalabra() {
+        LaPalabra.getPalabraElegida();
+        LaPalabra.getLong();
+        LaPalabra.llenarListaDeLetras();
+        int cont=3;
+        do { 
+            
+            System.out.println(LaPalabra.PalabraElegida);
+            System.out.println(LaPalabra.PalabraOculta);
+            Scanner unScanner = new Scanner(System.in);
+            dato = unScanner.nextLine();
+            LaPalabra.Ingresar(dato);
+            LaPalabra.compararPalabraOculta();
+            
+
+        if (LaPalabra.compararPalabraOculta()==1){
+            cont=cont--;
+           // System.out.println("PERDISTE");
+        }
+            } while ((!LaPalabra.LetraIngresada.equalsIgnoreCase("salir")) || (cont!=0));
         return LaPalabra;
-     }
-       }
+        }    
+    //public void seAcabo(){
+     //   int cont=3;
+    //    if (LaPalabra.compararPalabraOculta()==1){
+       //     cont=cont--;
+         //   System.out.println("PERDISTE");
+        //}
+         
+    //}
+    
+    @Override
+    public void listen(Event event) {
+        ActionEvent ae = (ActionEvent) event.target;
+        dato = ae.getActionCommand();
+        System.out.println("Llego a Game: " + dato);
+        LaPalabra.Ingresar(dato);
+        LaPalabra.compararPalabraOculta();
+        System.out.println(LaPalabra.PalabraOculta);
+    }
+}

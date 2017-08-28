@@ -7,7 +7,7 @@ package poo7;
 
 /**
  *
- * @author maquina
+ * @author CFP31-10
  */
 public class POO7 {
 

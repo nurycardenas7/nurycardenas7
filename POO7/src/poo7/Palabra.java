@@ -5,13 +5,14 @@
  */
 package poo7;
 
-/**
- *
- * @author maquina
- */
 import java.util.*;
 import java.math.*;
+import java.util.Scanner;
 
+/**
+ *
+ * @author CFP31-10
+ */
 public class Palabra {
 
     protected List<String> ListaDePalabras;
@@ -20,8 +21,10 @@ public class Palabra {
     protected String PalabraElegida;
     protected List<String> ListaDeLetras;
     protected List<String> PalabraOculta;
+    protected int marcador;
 
     public Palabra() {
+
         ListaDePalabras = new ArrayList<>();
         ListaDePalabras.add("PALA");
         ListaDePalabras.add("OTORRINOLARINGOLOGO");
@@ -35,13 +38,15 @@ public class Palabra {
         PalabraOculta = new ArrayList();
         Long =0;
         LetraIngresada = " ";
-        PalabraElegida = " ";
-        
+        PalabraElegida = " ";        
     }
 
     public String getPalabraElegida() {
         int max = ListaDePalabras.size();
         PalabraElegida = ListaDePalabras.get((int) (Math.random() * max));
+        for (int i = 0; i < PalabraElegida.length(); i++) {
+            PalabraOculta.add(i, "-");
+        }
         return PalabraElegida;
     }
 
@@ -55,27 +60,28 @@ public class Palabra {
         return Long;
     }  //con este metodo obtengo la longitud de la palabra.
 
-    public void llenarPalabraOculta() {
+    public void llenarListaDeLetras() {
 
         for (int i = 0; i < Long; i++) {
-            ListaDeLetras.add(PalabraElegida.substring(i, i + 1));
-            if (ListaDeLetras.get(i).equalsIgnoreCase(LetraIngresada)) {
-                PalabraOculta.add(i, (ListaDeLetras.get(i)));
-            } else {
-                PalabraOculta.add(i, "-");
-            }
+            ListaDeLetras.add(PalabraElegida.substring(i, i + 1));              
         }
     }
     
-    public void compararPalabraOculta() {
+    public int compararPalabraOculta() {
         for (int i = 0; i < Long; i++) {
             if (ListaDeLetras.get(i).equalsIgnoreCase(LetraIngresada)) {
+                marcador=0;
                 if (PalabraOculta.get(i).equals("-")) {
-                    PalabraOculta.add(i, (ListaDeLetras.get(i)));
+                    PalabraOculta.set(i,(ListaDeLetras.get(i)));
                 } else {
                     PalabraOculta.get(i);
                 }
-            }
+            }else { marcador=1;
         }
+    }
+        return marcador;
+    }
+    public void Ingresar(String dato) {
+        LetraIngresada=dato;
     }
 }
